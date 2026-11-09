@@ -1157,18 +1157,27 @@ const GRADE_HEADS = {
       const btn = document.getElementById('btnBackToTop');
       if (!btn) return;
 
-      window.addEventListener('scroll', () => {
-        if (window.scrollY > 180) {
-          btn.classList.remove('opacity-0', 'pointer-events-none');
-          btn.classList.add('opacity-100', 'pointer-events-auto');
+      const checkScroll = () => {
+        const scrollY = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+        if (scrollY > 120) {
+          btn.style.display = 'flex';
         } else {
-          btn.classList.add('opacity-0', 'pointer-events-none');
-          btn.classList.remove('opacity-100', 'pointer-events-auto');
+          btn.style.display = 'none';
         }
-      }, { passive: true });
+      };
 
-      btn.addEventListener('click', () => {
+      // Listen on window and document for maximum mobile browser compatibility
+      window.addEventListener('scroll', checkScroll, { passive: true });
+      document.addEventListener('scroll', checkScroll, { passive: true });
+      window.addEventListener('touchmove', checkScroll, { passive: true });
+
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
         window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+        document.documentElement.scrollTo({
           top: 0,
           behavior: 'smooth'
         });
@@ -1895,7 +1904,7 @@ const GRADE_HEADS = {
     }
   </script>
   <!-- Floating Back to Top Button -->
-  <button id="btnBackToTop" title="เลื่อนขึ้นบนสุด" aria-label="เลื่อนขึ้นบนสุด" class="fixed bottom-5 right-4 sm:bottom-6 sm:right-6 z-40 w-12 h-12 rounded-full bg-gradient-to-tr from-[#e11d48] to-[#ec4899] text-white shadow-2xl flex items-center justify-center opacity-0 pointer-events-none transition-all duration-300 hover:scale-110 active:scale-90 border-2 border-white/80">
+  <button id="btnBackToTop" type="button" title="เลื่อนขึ้นบนสุด" aria-label="เลื่อนขึ้นบนสุด" style="display: none; position: fixed; bottom: max(1.25rem, env(safe-area-inset-bottom, 1.25rem)); right: max(1rem, env(safe-area-inset-right, 1rem)); z-index: 99999;" class="w-12 h-12 rounded-full bg-gradient-to-tr from-[#e11d48] to-[#ec4899] text-white shadow-2xl items-center justify-center hover:scale-110 active:scale-90 border-2 border-white transition-transform duration-200 cursor-pointer">
     <svg class="w-6 h-6 stroke-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 15l7-7 7 7" />
     </svg>
