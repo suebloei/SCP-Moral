@@ -7,7 +7,7 @@
   <link rel="apple-touch-icon" href="logo.png">
   <title>ระบบเช็คชื่อกิจกรรมส่งเสริมคุณธรรม จริยธรรม - โรงเรียนสีชมพูศึกษา</title>
   
-  <meta name="theme-color" content="#7c3aed">
+  <meta name="theme-color" content="#db2777">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <meta name="apple-mobile-web-app-title" content="เช็คชื่อคุณธรรม">
@@ -32,47 +32,50 @@
           },
           colors: {
             brand: {
-              50: '#f5f3ff',
-              100: '#ede9fe',
-              200: '#ddd6fe',
-              300: '#c4b5fd',
-              400: '#a78bfa',
-              500: '#8b5cf6',
-              600: '#7c3aed',
-              700: '#6d28d9',
-              800: '#5b21b6',
-              900: '#4c1d95',
+              50: '#fff1f2',
+              100: '#fdf2f8',
+              200: '#fce7f3',
+              300: '#fbcfe8',
+              400: '#f472b6',
+              500: '#ec4899',
+              600: '#db2777',
+              700: '#be185d',
+              800: '#9d174d',
+              900: '#831843',
             }
           },
           boxShadow: {
-            'purple-soft': '0 10px 25px -5px rgba(124, 58, 237, 0.15), 0 8px 10px -6px rgba(124, 58, 237, 0.1)',
-            'card': '0 4px 20px -2px rgba(124, 58, 237, 0.08), 0 2px 6px -1px rgba(0, 0, 0, 0.04)',
+            'pink-soft': '0 10px 25px -5px rgba(219, 39, 119, 0.15), 0 8px 10px -6px rgba(219, 39, 119, 0.1)',
+            'card': '0 4px 20px -2px rgba(219, 39, 119, 0.08), 0 2px 6px -1px rgba(0, 0, 0, 0.04)',
           }
         }
       }
     }
   </script>
 
-  <style>
+    <style>
     :root {
       --sat: env(safe-area-inset-top, 0px);
       --sar: env(safe-area-inset-right, 0px);
       --sab: env(safe-area-inset-bottom, 0px);
       --sal: env(safe-area-inset-left, 0px);
     }
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
     body {
-      padding-top: max(0.75rem, var(--sat));
-      padding-right: max(0.75rem, var(--sar));
-      padding-bottom: max(1rem, var(--sab));
-      padding-left: max(0.75rem, var(--sal));
+      padding-top: max(0.5rem, var(--sat));
+      padding-right: max(0.5rem, var(--sar));
+      padding-bottom: max(0.75rem, var(--sab));
+      padding-left: max(0.5rem, var(--sal));
       -webkit-tap-highlight-color: transparent;
       overflow-x: hidden;
-      background-color: #fbf9ff;
+      background-color: #fff5f7;
       background-image: 
-        radial-gradient(at 0% 0%, #ede9fe 0px, transparent 50%),
-        radial-gradient(at 100% 0%, #ddd6fe 0px, transparent 50%),
-        radial-gradient(at 100% 100%, #f5f3ff 0px, transparent 50%),
-        radial-gradient(at 0% 100%, #faf5ff 0px, transparent 50%);
+        radial-gradient(at 0% 0%, #fdf2f8 0px, transparent 50%),
+        radial-gradient(at 100% 0%, #fce7f3 0px, transparent 50%),
+        radial-gradient(at 100% 100%, #fff1f2 0px, transparent 50%),
+        radial-gradient(at 0% 100%, #fff1f2 0px, transparent 50%);
       background-attachment: fixed;
       min-height: 100vh;
       color: #2e1065;
@@ -80,16 +83,59 @@
     .glass-nav {
       background: rgba(255, 255, 255, 0.95);
       backdrop-filter: blur(14px);
-      border: 1.5px solid rgba(221, 214, 254, 0.85);
+      border: 1.5px solid rgba(244, 114, 182, 0.25);
     }
     .glass-card {
       background: #ffffff;
-      border: 1.5px solid #ede9fe;
+      border: 1.5px solid #fdf2f8;
       transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
     }
     .glass-card:hover {
-      border-color: #c4b5fd;
-      box-shadow: 0 12px 30px -8px rgba(124, 58, 237, 0.16);
+      border-color: #fbcfe8;
+      box-shadow: 0 12px 30px -8px rgba(219, 39, 119, 0.16);
+    }
+
+    /* Mobile Responsive Table Optimization */
+    .table-scroll-container {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: thin;
+      position: relative;
+    }
+    
+    /* Sticky Name Column on Mobile Devices */
+    @media (max-width: 640px) {
+      .sticky-col-name {
+        position: sticky;
+        left: 0;
+        background: #ffffff;
+        z-index: 10;
+        box-shadow: 2px 0 6px -2px rgba(219, 39, 119, 0.12);
+      }
+      th.sticky-col-name {
+        background: #fdf2f8;
+        z-index: 20;
+      }
+    }
+
+    /* Landscape Mode on Smartphones */
+    @media (orientation: landscape) and (max-height: 540px) {
+      header.glass-nav {
+        padding: 0.75rem 1rem !important;
+      }
+      .landscape-compact-logo {
+        width: 2.75rem !important;
+        height: 2.75rem !important;
+      }
+      .landscape-compact-title {
+        font-size: 1.15rem !important;
+      }
+      .landscape-compact-p {
+        display: none !important;
+      }
+      .landscape-compact-card {
+        padding: 0.85rem !important;
+      }
     }
 
     /* Official Booklet Print Styles - Strictly Hide On-screen UI and start from Cover Page */
@@ -114,7 +160,7 @@
       }
       table { border-collapse: collapse !important; width: 100% !important; margin-top: 6px !important; }
       th, td { border: 1px solid #4b5563 !important; padding: 3px 5px !important; font-size: 10px !important; color: #111827 !important; line-height: 1.25 !important; }
-      th { background-color: #ede9fe !important; font-weight: bold !important; color: #3b0764 !important; }
+      th { background-color: #fdf2f8 !important; font-weight: bold !important; color: #3b0764 !important; }
       .cover-page {
         page-break-before: avoid !important;
         break-before: avoid !important;
@@ -144,54 +190,54 @@
       @page { size: A4 portrait; margin: 8mm 10mm 8mm 10mm; }
     }
     .print-only { display: none; }
-    ::-webkit-scrollbar { width: 7px; height: 7px; }
-    ::-webkit-scrollbar-track { background: #f5f3ff; }
-    ::-webkit-scrollbar-thumb { background: #c4b5fd; border-radius: 9999px; }
-    ::-webkit-scrollbar-thumb:hover { background: #8b5cf6; }
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: #fff1f2; }
+    ::-webkit-scrollbar-thumb { background: #fbcfe8; border-radius: 9999px; }
+    ::-webkit-scrollbar-thumb:hover { background: #ec4899; }
   </style>
 </head>
 <body class="p-3 sm:p-6 md:p-8 flex flex-col justify-between selection:bg-brand-200 selection:text-brand-900">
 
   <div class="max-w-6xl mx-auto w-full space-y-5">
     
-    <!-- Top Header Card -->
-    <header class="glass-nav rounded-3xl p-5 sm:p-7 shadow-purple-soft relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-6 no-print">
-      <div class="flex items-center gap-4 relative z-10 text-center md:text-left">
-        <div class="relative group">
-          <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-gradient-to-tr from-brand-600 via-purple-500 to-indigo-400 p-1 shadow-lg shadow-brand-500/25 flex items-center justify-center transform transition group-hover:scale-105">
+    <!-- Top Header Card (Responsive Portrait, Landscape & Desktop) -->
+    <header class="glass-nav rounded-2xl sm:rounded-3xl p-3.5 sm:p-5 md:p-6 shadow-pink-soft relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-4 sm:gap-6 no-print">
+      <div class="flex items-center gap-3 sm:gap-4 relative z-10 text-center md:text-left w-full md:w-auto justify-center md:justify-start">
+        <div class="relative group flex-shrink-0">
+          <div class="w-13 h-13 sm:w-16 sm:h-16 md:w-18 md:h-18 landscape-compact-logo rounded-2xl bg-gradient-to-tr from-brand-600 via-pink-500 to-indigo-400 p-0.5 sm:p-1 shadow-md shadow-brand-500/25 flex items-center justify-center transform transition group-hover:scale-105">
             <div class="w-full h-full bg-white rounded-[14px] flex items-center justify-center overflow-hidden p-1">
-              <img src="logo.png" alt="โลโก้โรงเรียนสีชมพูศึกษา" class="w-full h-full object-contain" onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'text-2xl font-bold text-brand-700\'>🙏</div>';">
+              <img src="logo.png" alt="โลโก้โรงเรียนสีชมพูศึกษา" class="w-full h-full object-contain" onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'text-xl font-bold text-brand-700\'>🙏</div>';">
             </div>
           </div>
-          <span class="absolute -bottom-1 -right-1 flex h-4 w-4">
+          <span class="absolute -bottom-1 -right-1 flex h-3.5 w-3.5">
             <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-            <span class="relative inline-flex rounded-full h-4 w-4 bg-emerald-500 border-2 border-white"></span>
+            <span class="relative inline-flex rounded-full h-3.5 w-3.5 bg-emerald-500 border-2 border-white"></span>
           </span>
         </div>
         
-        <div>
-          <div class="flex flex-wrap items-center justify-center md:justify-start gap-2">
-            <span class="px-3 py-0.5 rounded-full text-xs font-semibold bg-brand-100 text-brand-800 border border-brand-200">
+        <div class="min-w-0">
+          <div class="flex flex-wrap items-center justify-center md:justify-start gap-1.5 sm:gap-2">
+            <span class="px-2.5 py-0.5 rounded-full text-[11px] sm:text-xs font-bold bg-brand-100 text-brand-800 border border-brand-200">
               ✨ โรงเรียนสีชมพูศึกษา
             </span>
-            <span class="px-2.5 py-0.5 rounded-full text-xs bg-emerald-50 text-emerald-700 border border-emerald-200 flex items-center gap-1 font-medium">
-              <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span> เช็คชื่อคุณธรรม จริยธรรม ภาคเรียนที่ 2/2569 (20 สัปดาห์)
+            <span class="px-2 py-0.5 rounded-full text-[11px] sm:text-xs bg-emerald-50 text-emerald-700 border border-emerald-200 flex items-center gap-1 font-semibold">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span> ภาคเรียนที่ 2/2569 (20 สัปดาห์)
             </span>
           </div>
 
-          <h1 class="text-2xl sm:text-3xl font-extrabold text-brand-900 tracking-tight mt-1 flex items-center justify-center md:justify-start gap-2">
-            <span>กิจกรรมส่งเสริมคุณธรรม จริยธรรม และค่านิยมที่ดีงาม</span>
+          <h1 class="text-xl sm:text-2xl md:text-3xl landscape-compact-title font-extrabold text-brand-900 tracking-tight mt-1 flex items-center justify-center md:justify-start gap-2">
+            <span>กิจกรรมคุณธรรม จริยธรรม</span>
           </h1>
 
-          <p class="text-xs sm:text-sm text-brand-700/80 font-normal">
-            ม.ต้น จัดกิจกรรมวันศุกร์ • ม.ปลาย จัดกิจกรรมวันอังคาร • บันทึกทับข้อมูลเดิมอัตโนมัติ
+          <p class="text-[11px] sm:text-xs md:text-sm text-brand-700/80 font-normal landscape-compact-p">
+            ม.ต้น จัดกิจกรรมวันศุกร์ • ม.ปลาย จัดกิจกรรมวันอังคาร
           </p>
         </div>
       </div>
 
       <!-- Controls -->
       <div class="flex flex-wrap items-center justify-center gap-2.5 relative z-10 no-print">
-        <button id="btnSetWebhook" title="ตั้งค่าลิงก์ Google Apps Script Web App" class="px-3.5 py-2 rounded-2xl text-xs sm:text-sm font-semibold bg-white hover:bg-brand-50 text-brand-700 border border-brand-200 shadow-sm transition flex items-center gap-1.5 active:scale-95">
+        <button id="btnSetWebhook" title="ตั้งค่าลิงก์ Google Apps Script Web App" class="hidden px-3.5 py-2 rounded-2xl text-xs sm:text-sm font-semibold bg-white hover:bg-brand-50 text-brand-700 border border-brand-200 shadow-sm transition flex items-center gap-1.5 active:scale-95">
           <svg class="w-4 h-4 text-brand-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -216,7 +262,7 @@
     </header>
 
     <!-- Navigation Tabs -->
-    <div class="glass-card rounded-2xl p-1.5 sm:p-2 shadow-purple-soft no-print flex items-center justify-start gap-2 border-2 border-brand-200">
+    <div class="glass-card rounded-2xl p-1.5 sm:p-2 shadow-pink-soft no-print flex items-center justify-start gap-2 border-2 border-brand-200">
       <button id="tabBtnCheck" type="button" class="px-5 py-2.5 rounded-xl text-xs sm:text-sm font-extrabold transition flex items-center gap-1.5 bg-gradient-to-r from-brand-600 to-indigo-600 text-white shadow-md active:scale-95">
         <span>1. บันทึกเช็คชื่อประจำสัปดาห์</span>
       </button>
@@ -228,7 +274,7 @@
     <!-- MODULE 1: CHECK IN -->
     <div id="moduleCheck" class="space-y-5 no-print">
       <!-- Selector Card -->
-      <div class="glass-card rounded-3xl p-5 sm:p-6 shadow-purple-soft space-y-4 border-t-4 border-t-brand-500">
+      <div class="glass-card rounded-2xl sm:rounded-3xl p-3.5 sm:p-5 md:p-6 shadow-pink-soft space-y-3.5 sm:space-y-4 border-t-4 border-t-brand-500 landscape-compact-card">
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3.5">
           <!-- Grade Filter -->
           <div>
@@ -279,12 +325,12 @@
         </div>
 
         <!-- Weekly Moral Activity Detail Input: Drop Down + Text Input -->
-        <div class="p-4 rounded-2xl bg-gradient-to-r from-purple-50 via-indigo-50/40 to-purple-50 border border-purple-200 space-y-2.5">
+        <div class="p-4 rounded-2xl bg-gradient-to-r from-pink-50 via-indigo-50/40 to-pink-50 border border-pink-200 space-y-2.5">
           <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
-            <label for="activityInput" class="text-xs font-bold text-purple-950 flex items-center gap-1.5">
+            <label for="activityInput" class="text-xs font-bold text-pink-950 flex items-center gap-1.5">
               <span>📖 กิจกรรมคุณธรรม จริยธรรม ประจำห้องเรียนในสัปดาห์นี้:</span>
             </label>
-            <span class="text-[11px] text-purple-700 font-semibold" id="roomActivityNotice">
+            <span class="text-[11px] text-pink-700 font-semibold" id="roomActivityNotice">
               💡 บันทึกกิจกรรมเฉพาะของห้องนี้ (หากสัปดาห์เดียวกันบันทึกซ้ำ จะทับข้อมูลเดิมทันที)
             </span>
           </div>
@@ -292,8 +338,8 @@
           <!-- Activity Drop Down Selection -->
           <div class="grid grid-cols-1 md:grid-cols-12 gap-2">
             <div class="md:col-span-5">
-              <label for="activityPresetSelect" class="block text-[11px] font-bold text-purple-900 mb-1">🎯 เลือกจากกิจกรรมแนะนำ (Drop Down):</label>
-              <select id="activityPresetSelect" class="w-full bg-white border-2 border-purple-300 rounded-xl py-2 px-3 text-xs font-bold text-brand-900 focus:outline-none focus:border-purple-600 shadow-sm cursor-pointer">
+              <label for="activityPresetSelect" class="block text-[11px] font-bold text-pink-900 mb-1">🎯 เลือกจากกิจกรรมแนะนำ (Drop Down):</label>
+              <select id="activityPresetSelect" class="w-full bg-white border-2 border-pink-300 rounded-xl py-2 px-3 text-xs font-bold text-brand-900 focus:outline-none focus:border-pink-600 shadow-sm cursor-pointer">
                 <option value="">-- เลือกกิจกรรมแนะนำ หรือพิมพ์เองด้านขวา --</option>
                 <option value="สวดมนต์แปล นั่งสมาธิ แผ่เมตตา พัฒนาจิตใจ">สวดมนต์แปล นั่งสมาธิ แผ่เมตตา พัฒนาจิตใจ</option>
                 <option value="กิจกรรมจิตอาสา ทำความสะอาดพื้นที่รับผิดชอบและห้องเรียน">กิจกรรมจิตอาสา ทำความสะอาดพื้นที่รับผิดชอบและห้องเรียน</option>
@@ -317,47 +363,59 @@
               </select>
             </div>
             <div class="md:col-span-7">
-              <label for="activityInput" class="block text-[11px] font-bold text-purple-900 mb-1">📝 กิจกรรมที่จะบันทึกจริง (แก้ไขเพิ่มเติมได้):</label>
+              <label for="activityInput" class="block text-[11px] font-bold text-pink-900 mb-1">📝 กิจกรรมที่จะบันทึกจริง (แก้ไขเพิ่มเติมได้):</label>
               <input 
                 type="text" 
                 id="activityInput" 
                 placeholder="เลือกจาก Drop Down หรือพิมพ์ระบุกิจกรรมที่นี่..." 
-                class="w-full bg-white border-2 border-purple-300 rounded-xl py-2 px-3.5 text-xs sm:text-sm text-brand-900 placeholder-purple-300 focus:outline-none focus:border-purple-600 focus:ring-2 focus:ring-purple-200 transition font-medium"
+                class="w-full bg-white border-2 border-pink-300 rounded-xl py-2 px-3.5 text-xs sm:text-sm text-brand-900 placeholder-pink-300 focus:outline-none focus:border-pink-600 focus:ring-2 focus:ring-pink-200 transition font-medium"
               >
             </div>
           </div>
         </div>
 
         <!-- Quick Status Filters & Counters (ครบ 5 สถานะ: มา, สาย, ลา, ขาด, กิจกรรม) -->
-        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pt-1">
-          <div class="flex flex-wrap items-center gap-2">
-            <span class="text-xs font-bold text-brand-900">สรุปสัปดาห์นี้:</span>
-            <span class="px-2.5 py-1 rounded-xl text-xs font-bold bg-emerald-100 text-emerald-800 border border-emerald-200">
+        <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-3 pt-1 border-t border-brand-100">
+          <div class="flex flex-wrap items-center gap-1.5 sm:gap-2">
+            <span class="text-xs font-extrabold text-brand-900 mr-0.5">สรุปสัปดาห์นี้:</span>
+            <span class="px-2.5 py-1 rounded-xl text-xs font-bold bg-emerald-100/90 text-emerald-800 border border-emerald-200 shadow-xs">
               มา <strong id="statPresent">0</strong>
             </span>
-            <span class="px-2.5 py-1 rounded-xl text-xs font-bold bg-amber-100 text-amber-800 border border-amber-200">
+            <span class="px-2.5 py-1 rounded-xl text-xs font-bold bg-amber-100/90 text-amber-800 border border-amber-200 shadow-xs">
               สาย <strong id="statLate">0</strong>
             </span>
-            <span class="px-2.5 py-1 rounded-xl text-xs font-bold bg-blue-100 text-blue-800 border border-blue-200">
+            <span class="px-2.5 py-1 rounded-xl text-xs font-bold bg-blue-100/90 text-blue-800 border border-blue-200 shadow-xs">
               ลา <strong id="statLeave">0</strong>
             </span>
-            <span class="px-2.5 py-1 rounded-xl text-xs font-bold bg-rose-100 text-rose-800 border border-rose-200">
+            <span class="px-2.5 py-1 rounded-xl text-xs font-bold bg-rose-100/90 text-rose-800 border border-rose-200 shadow-xs">
               ขาด <strong id="statAbsent">0</strong>
             </span>
-            <span class="px-2.5 py-1 rounded-xl text-xs font-bold bg-purple-100 text-purple-800 border border-purple-200">
+            <span class="px-2.5 py-1 rounded-xl text-xs font-bold bg-pink-100/90 text-pink-800 border border-pink-200 shadow-xs">
               กิจกรรม <strong id="statActivity">0</strong>
             </span>
           </div>
 
-          <div class="flex items-center gap-2">
-            <button id="btnMarkAllPresent" type="button" class="px-3.5 py-2 rounded-xl text-xs font-bold bg-emerald-600 hover:bg-emerald-700 text-white shadow transition active:scale-95 flex items-center gap-1">
+          <div class="flex items-center gap-2 flex-wrap">
+            <button id="btnMarkAllPresent" type="button" class="px-3 py-2 rounded-xl text-xs font-bold bg-emerald-600 hover:bg-emerald-700 text-white shadow transition active:scale-95 flex items-center gap-1">
               <span>✓ มาทั้งหมด</span>
             </button>
-            <button id="btnSaveAttendance" type="button" class="px-4 py-2 rounded-xl text-xs font-bold bg-gradient-to-r from-brand-600 to-indigo-600 hover:from-brand-700 hover:to-indigo-700 text-white shadow transition active:scale-95 flex items-center gap-1">
+                        <button id="btnSaveAttendance" type="button" class="px-4 py-2 rounded-xl text-xs font-bold bg-gradient-to-r from-brand-600 to-indigo-600 hover:from-brand-700 hover:to-indigo-700 text-white shadow transition active:scale-95 flex items-center gap-1">
               <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-3m-1 4l-3 3m0 0l-3-3m3 3V4" />
               </svg>
-              <span>บันทึกทับลงชีต</span>
+              <span>บันทึก</span>
+            </button>
+            <button id="btnShareLine" type="button" title="แชร์สรุปผลเช็คชื่อไปยัง LINE" class="px-3.5 py-2 rounded-xl text-xs font-bold bg-[#06C755] hover:bg-[#05b34c] text-white shadow transition active:scale-95 flex items-center gap-1.5">
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                <path d="M24 10.304c0-5.369-5.383-9.738-12-9.738-6.616 0-12 4.369-12 9.738 0 4.814 4.269 8.846 10.019 9.608.391.084.922.258 1.057.592.121.303.079.778.039 1.085l-.171 1.027c-.053.303-.242 1.186 1.039.647 1.281-.54 6.911-4.069 9.428-6.967 1.739-1.907 2.589-3.86 2.589-5.292z"/>
+              </svg>
+              <span>แชร์สรุปไป LINE</span>
+            </button>
+            <button id="btnCopySummary" type="button" title="คัดลอกข้อความสรุป เพื่อนำไปวางแชร์ต่อ" class="px-3 py-2 rounded-xl text-xs font-bold bg-white hover:bg-brand-50 text-indigo-700 border border-indigo-200 shadow-sm transition active:scale-95 flex items-center gap-1">
+              <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3" />
+              </svg>
+              <span id="copyBtnText">คัดลอกสรุป</span>
             </button>
             <button id="btnExportCsv" type="button" class="px-3 py-2 rounded-xl text-xs font-bold bg-white hover:bg-brand-50 text-brand-700 border border-brand-200 shadow-sm transition active:scale-95">
               📥 CSV สัปดาห์นี้
@@ -367,23 +425,26 @@
       </div>
 
       <!-- Attendance Table -->
-      <div class="glass-card rounded-3xl p-5 sm:p-6 shadow-purple-soft space-y-4">
-        <div class="flex items-center justify-between">
-          <h3 class="text-sm font-bold text-brand-900" id="tableHeaderTitle">
+      <div class="glass-card rounded-2xl sm:rounded-3xl p-3.5 sm:p-5 md:p-6 shadow-pink-soft space-y-3.5 sm:space-y-4 landscape-compact-card">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+          <h3 class="text-xs sm:text-sm font-bold text-brand-900 flex items-center gap-1.5" id="tableHeaderTitle">
             รายชื่อนักเรียน
           </h3>
-          <span class="text-xs text-brand-600 font-medium" id="tableStudentCount">0 คน</span>
+          <div class="flex items-center gap-2">
+            <span class="sm:hidden text-[10px] text-pink-600 font-medium bg-pink-50 px-2 py-0.5 rounded-full border border-pink-200">👈 เลื่อนซ้าย-ขวาเพื่อเช็คชื่อ</span>
+            <span class="text-xs text-brand-700 font-bold bg-brand-50 px-2.5 py-0.5 rounded-full border border-brand-200" id="tableStudentCount">0 คน</span>
+          </div>
         </div>
 
         <div class="overflow-x-auto rounded-2xl border border-brand-200 bg-white shadow-sm">
           <table class="w-full text-left text-xs">
-            <thead class="bg-brand-50/90 text-brand-900 border-b border-brand-200 font-bold uppercase text-[11px] tracking-wider">
+            <thead class="bg-brand-50/95 text-brand-900 border-b-2 border-brand-200 font-bold uppercase text-[11px] sm:text-xs tracking-wider">
               <tr>
-                <th class="py-3 px-3 text-center w-12">ลำดับ</th>
-                <th class="py-3 px-3 text-center w-24">เลขประจำตัว</th>
-                <th class="py-3 px-4">ชื่อ - สกุล</th>
-                <th class="py-3 px-3 text-center w-20">ห้อง</th>
-                <th class="py-3 px-4 text-center w-[420px]">สถานะการร่วมกิจกรรมในสัปดาห์นี้</th>
+                <th class="py-2.5 sm:py-3 px-2 sm:px-3 text-center w-10 sm:w-12 whitespace-nowrap">ลำดับ</th>
+                <th class="py-2.5 sm:py-3 px-2 sm:px-3 text-center w-20 sm:w-24 whitespace-nowrap">เลขประจำตัว</th>
+                <th class="py-2.5 sm:py-3 px-3 sm:px-4 text-left sticky-col-name whitespace-nowrap">ชื่อ - สกุล</th>
+                <th class="py-2.5 sm:py-3 px-2 sm:px-3 text-center w-16 sm:w-20 whitespace-nowrap">ห้อง</th>
+                <th class="py-2.5 sm:py-3 px-3 sm:px-4 text-center min-w-[320px] sm:min-w-[400px]">สถานะการร่วมกิจกรรมในสัปดาห์นี้</th>
               </tr>
             </thead>
             <tbody id="studentTableBody" class="divide-y divide-brand-100 text-brand-900"></tbody>
@@ -394,7 +455,7 @@
 
     <!-- MODULE 2: REPORT & EVALUATION (BLANK FOR UNCHECKED WEEKS) -->
     <div id="moduleReport" class="space-y-5 hidden no-print">
-      <div class="glass-card rounded-3xl p-5 sm:p-6 shadow-purple-soft space-y-4 border-t-4 border-t-indigo-500">
+      <div class="glass-card rounded-2xl sm:rounded-3xl p-3.5 sm:p-5 md:p-6 shadow-pink-soft space-y-3.5 sm:space-y-4 border-t-4 border-t-indigo-500 landscape-compact-card">
         <div class="flex flex-col sm:flex-row items-center justify-between gap-3">
           <div>
             <h2 class="text-lg font-bold text-brand-900" id="matrixReportTitle">
@@ -441,10 +502,10 @@
           <div class="flex justify-between font-bold text-gray-900">
             <span>ภาคเรียนที่จัดกิจกรรม: <strong>2</strong></span>
             <span>ปีการศึกษา: <strong>2569</strong></span>
-            <span>ระดับชั้น/ห้องเรียน: <strong id="printCoverRoom" class="text-sm font-extrabold text-purple-900">ม.1/1</strong></span>
+            <span>ระดับชั้น/ห้องเรียน: <strong id="printCoverRoom" class="text-sm font-extrabold text-pink-900">ม.1/1</strong></span>
           </div>
           <div class="font-bold text-gray-900">
-            ชื่อกิจกรรม: <strong class="text-sm text-purple-950 font-extrabold">กิจกรรมส่งเสริมคุณธรรม จริยธรรม และค่านิยมที่ดีงาม</strong>
+            ชื่อกิจกรรม: <strong class="text-sm text-pink-950 font-extrabold">กิจกรรมคุณธรรม จริยธรรม</strong>
           </div>
           <div class="font-bold text-gray-900">
             ประเภทกิจกรรม: <strong>กิจกรรมพัฒนาผู้เรียน (กิจกรรมแนะแนว/ส่งเสริมคุณธรรม จริยธรรม)</strong>
@@ -459,7 +520,7 @@
           <p class="text-center font-bold text-sm text-gray-900 mb-1.5">การอนุมัติผลการประเมินกิจกรรมพัฒนาผู้เรียน (เกณฑ์ผ่าน &ge; 80%)</p>
           <table class="w-full text-center text-xs border border-gray-600 border-collapse">
             <thead>
-              <tr class="bg-purple-100 font-bold border-b border-gray-600">
+              <tr class="bg-pink-100 font-bold border-b border-gray-600">
                 <th class="py-2 border-r border-gray-600 w-1/4">จำนวนนักเรียน (คน)</th>
                 <th class="py-2 border-r border-gray-600 w-1/4 text-emerald-800 font-bold">ผ่าน (ผ)</th>
                 <th class="py-2 border-r border-gray-600 w-1/4 text-rose-800 font-bold">ไม่ผ่าน (มผ)</th>
@@ -528,7 +589,7 @@
       <!-- ================= PAGE 2: แผนและผลการปฏิบัติกิจกรรมคุณธรรม 20 สัปดาห์ ================= -->
       <div class="activity-page flex flex-col justify-between pt-3" style="min-height: 96vh;">
         <div>
-          <div class="border-b-2 border-purple-600 pb-2 flex items-center justify-between">
+          <div class="border-b-2 border-pink-600 pb-2 flex items-center justify-between">
             <div class="flex items-center gap-3">
               <img src="logo.png" alt="โลโก้" class="w-12 h-12 object-contain" onerror="this.style.display='none'">
               <div>
@@ -540,7 +601,7 @@
 
           <table class="w-full text-[10px] border border-gray-500 border-collapse mt-3">
             <thead>
-              <tr class="bg-purple-100 font-bold border-b border-gray-500">
+              <tr class="bg-pink-100 font-bold border-b border-gray-500">
                 <th class="py-1.5 px-2 text-center w-14 border-r border-gray-500">สัปดาห์ที่</th>
                 <th class="py-1.5 px-3 text-center w-32 border-r border-gray-500">วัน/เดือน/ปี</th>
                 <th class="py-1.5 px-4 text-left border-r border-gray-500">กิจกรรมคุณธรรม จริยธรรม ที่จัดกิจกรรม</th>
@@ -556,7 +617,7 @@
 
       <!-- ================= PAGE 3: ตารางบันทึกเวลาเรียน 20 สัปดาห์ (Matrix Page) ================= -->
       <div class="matrix-page pt-3">
-        <div class="border-b-2 border-purple-600 pb-2 flex items-center justify-between">
+        <div class="border-b-2 border-pink-600 pb-2 flex items-center justify-between">
           <div class="flex items-center gap-3">
             <img src="logo.png" alt="โลโก้" class="w-12 h-12 object-contain" onerror="this.style.display='none'">
             <div>
@@ -568,7 +629,7 @@
 
         <table class="w-full text-[8.5px] border border-gray-500 border-collapse mt-2 table-auto" style="white-space: nowrap;">
           <thead>
-            <tr class="bg-purple-100 font-bold border-b border-gray-500" id="printMatrixHeadRow"></tr>
+            <tr class="bg-pink-100 font-bold border-b border-gray-500" id="printMatrixHeadRow"></tr>
           </thead>
           <tbody id="printMatrixBody"></tbody>
         </table>
@@ -719,17 +780,234 @@ const RAW_STUDENTS = [[20103, "เด็กชายกมลภพ โมคา
       }
     }
 
-    // โหลดและบันทึกชื่อครูที่ปรึกษาแยกรายห้องจาก LocalStorage
+    // ฐานข้อมูลครูที่ปรึกษาประจำแต่ละห้อง (ม.1 - ม.6)
+    const DEFAULT_ADVISORS = {
+  "ม.1/1": [
+    "นางสาวอารยา ผุยเบ้า"
+  ],
+  "ม.1/2": [
+    "นางจรรยา ครองยุทธ"
+  ],
+  "ม.1/3": [
+    "นางสาววราภรณ์ เปรมผล"
+  ],
+  "ม.1/4": [
+    "นางสาวเข็มมิกา กันหาเวียง"
+  ],
+  "ม.1/5": [
+    "นางสาวิณี สีเสริม",
+    "นายเอกลักษณ์ มาวงศ์นอก"
+  ],
+  "ม.1/6": [
+    "นายภานุพงศ์ ตีอกทำ",
+    "นางสุภาพร สางห้วยไพร"
+  ],
+  "ม.1/7": [
+    "นายสมศักดิ์ บุญชู",
+    "นางนีรมล มูลสุวรรณ"
+  ],
+  "ม.1/8": [
+    "นางสาวอนงลักษณ์ หมู่หาญ",
+    "นายตรีศศิธรษา แสงศรีเรือง"
+  ],
+  "ม.1/9": [
+    "ว่าที่ ร.ต.ชัชวาล เหลืองคำ",
+    "นางสาวนุชศรา ฝ่ายคำ"
+  ],
+  "ม.1/10": [
+    "ว่าที่ ร.ต.หญิงศิริญญา ภุมมะโสภณ",
+    "นางสาวปวีณา โสกบ้านขาม"
+  ],
+  "ม.2/1": [
+    "นางสาวผลิกา สิมพา",
+    "นายชาญยุทธ เร็วสา"
+  ],
+  "ม.2/2": [
+    "นางสาวระพีพร โสสวัสดิ์",
+    "นายสุวิทย์ สังสีแก้ว"
+  ],
+  "ม.2/3": [
+    "นายอลงกรณ์ ชมพูแดง"
+  ],
+  "ม.2/4": [
+    "นางลำพึง ร้อยดา",
+    "นางสาวสุตาภัตร ดาไชย"
+  ],
+  "ม.2/5": [
+    "นางสาวอรณี มูลป้อม"
+  ],
+  "ม.2/6": [
+    "นายพงศ์ธรรม ปลัดศรีช่วย"
+  ],
+  "ม.2/7": [
+    "นายณัฐพล บูรณา"
+  ],
+  "ม.2/8": [
+    "นางสาวอ้อยทิพย์ เพียทา"
+  ],
+  "ม.2/9": [
+    "นางสาวจุฬาลักษณ์ ชินแสง"
+  ],
+  "ม.2/10": [
+    "นายเอกชัย สาคีรี"
+  ],
+  "ม.2/11": [
+    "นางจันทิมา สิงห์ฝ่าย"
+  ],
+  "ม.3/1": [
+    "นายอมรศักดิ์ เพชรทอง"
+  ],
+  "ม.3/2": [
+    "นางสาวสุภาพร ทองล้น",
+    "นางสาวเพ็ญภัสสร อุดมธนโรจน์"
+  ],
+  "ม.3/3": [
+    "นางสาวปิยะวรรณ ศรีธร",
+    "นายธีรวัตร เพชรสังหาร"
+  ],
+  "ม.3/4": [
+    "นายวรวุฒิ ก้องเสียง",
+    "นางสาวธนิดา จันทะเดช"
+  ],
+  "ม.3/5": [
+    "นางสาวบุศราวัลย์ ชูภักดี"
+  ],
+  "ม.3/6": [
+    "นางอัญชุลี ทิพย์จักษ์",
+    "นายศตวรรษ โนนงาม"
+  ],
+  "ม.3/7": [
+    "นายทองอินทร์ อุดนอก"
+  ],
+  "ม.3/8": [
+    "นางวิยะดา หาจันดา"
+  ],
+  "ม.3/9": [
+    "นายอภิชัย ปุญญวราดล"
+  ],
+  "ม.3/10": [
+    "นางนงลักษณ์ พูนศรี",
+    "นางสุภาวดี สุระประจิต"
+  ],
+  "ม.3/11": [
+    "นางสาวอัจฉรา สิงห์สร"
+  ],
+  "ม.4/1": [
+    "นางวาสนา เหลาธรรม"
+  ],
+  "ม.4/2": [
+    "นายนพคุณ สืบเลย",
+    "นายคมเพชร โพธิปัสสา"
+  ],
+  "ม.4/3": [
+    "นางสุภาวดี โพธิปัสสา",
+    "นางสาวพริมา ศรีดารา"
+  ],
+  "ม.4/4": [
+    "นางสาวขนิษฐา หาญเชิงชัย"
+  ],
+  "ม.4/5": [
+    "นางสาวนิภาพร ฮามคำฮัก",
+    "นางสาวชัญญา ศรีม่วง"
+  ],
+  "ม.4/6": [
+    "นางยุพิน โทไข",
+    "นางอุไรวรรณ ทองโปรย"
+  ],
+  "ม.4/7": [
+    "นายปภิณวิช แนบชิด"
+  ],
+  "ม.4/8": [
+    "นายนักรบ บุญเสวงษ์",
+    "นางสาวรสสุคนธ์ เพ็งใจ"
+  ],
+  "ม.4/9": [
+    "นายภูมินทร์ รุ่งศรี",
+    "นายคุณากร ยลถนอม"
+  ],
+  "ม.5/1": [
+    "นายสมศักดิ์ มิเถาวัลย์",
+    "นางสาวปรุงฉัตร อินบุดดี"
+  ],
+  "ม.5/2": [
+    "นางสุชาดา สุวรรณศรี",
+    "นางสาวปัทมา รื่นกลิ่น"
+  ],
+  "ม.5/3": [
+    "นางชารีณัฏฐ์ ไชยสุรินทร์",
+    "นางสาวสุภณิดา ทองอ่าง"
+  ],
+  "ม.5/4": [
+    "นายสิทธิศักดิ์ สิงห์โสภา",
+    "นางสาวพิมพ์ณดา รวมลำภา"
+  ],
+  "ม.5/5": [
+    "นายปัญญา คำสะไมล์",
+    "นางสาวศรัญญา ศรีชมพร"
+  ],
+  "ม.5/6": [
+    "นางสาวปิยธิดา ผลานิสงค์",
+    "นางสาวสไบแพร จันทร์ต้น"
+  ],
+  "ม.5/7": [
+    "นายทองจันทร์ โจมเสนาะ"
+  ],
+  "ม.5/8": [
+    "นายนิรุตต์ ไชยธนากิจไพศาล",
+    "นายธีร์สิทธิ์ โพธิปัสสา"
+  ],
+  "ม.6/1": [
+    "นายกฤษณะ ปานะศรี",
+    "นางสาวมนัสนันท์ อำพรัตน์"
+  ],
+  "ม.6/2": [
+    "นายอธิพงษ์ จันทร์โฉม",
+    "นายอนัน ขุนเดช"
+  ],
+  "ม.6/3": [
+    "นางสาวจันทิมา นนทะคำจันทร์"
+  ],
+  "ม.6/4": [
+    "นายวรวุฒิ ทุมสิงห์",
+    "นางสาวปัตตาเวีย ทินบุตร"
+  ],
+  "ม.6/5": [
+    "นางสาวสุภาลักษณ์ ประเสริฐศรี"
+  ],
+  "ม.6/6": [
+    "นางสุพัตรา ขวัญบุญจันทร์"
+  ],
+  "ม.6/7": [
+    "นายสุภีรชัย ภิญโญดม"
+  ],
+  "ม.6/8": [
+    "นางพิสมัย สืบเลย",
+    "นายวีระยุทธ์ ปู่เพ็ง"
+  ],
+  "ม.6/9": [
+    "นางสาวจิตราภรณ์ ใจธรรม"
+  ]
+};
+
+    // ล้างค่าแคชเดิมที่เคยจำชื่อเก่าไว้ เพื่อให้ดึงฐานข้อมูลทางการของโรงเรียนเสมอ
+    if (!localStorage.getItem('MORAL_CACHE_CLEARED_V2569')) {
+      Object.keys(DEFAULT_ADVISORS).forEach(r => {
+        localStorage.removeItem(`MORAL_ADV1_${r}`);
+        localStorage.removeItem(`MORAL_ADV2_${r}`);
+      });
+      localStorage.setItem('MORAL_CACHE_CLEARED_V2569', 'true');
+    }
+
+    // โหลดและบันทึกชื่อครูที่ปรึกษาแยกรายห้องจาก LocalStorage หรือฐานข้อมูลทางการ
     function loadRoomAdvisors() {
       const savedAdv1 = localStorage.getItem(`MORAL_ADV1_${currentRoom}`);
       const savedAdv2 = localStorage.getItem(`MORAL_ADV2_${currentRoom}`);
-      if (currentRoom === 'ม.4/2') {
-        advisor1Input.value = savedAdv1 !== null ? savedAdv1 : 'นายนพคุณ สืบเลย';
-        advisor2Input.value = savedAdv2 !== null ? savedAdv2 : 'นายคมเพชร โพธิปัสสา';
-      } else {
-        advisor1Input.value = savedAdv1 !== null ? savedAdv1 : 'นายนพคุณ สืบเลย';
-        advisor2Input.value = savedAdv2 !== null ? savedAdv2 : '';
-      }
+      const defaultAdv = DEFAULT_ADVISORS[currentRoom] || [''];
+      const defAdv1 = defaultAdv[0] || '';
+      const defAdv2 = defaultAdv[1] || '';
+
+      advisor1Input.value = (savedAdv1 !== null && savedAdv1 !== '') ? savedAdv1 : defAdv1;
+      advisor2Input.value = (savedAdv2 !== null && savedAdv2 !== '') ? savedAdv2 : defAdv2;
     }
 
     function saveRoomAdvisors() {
@@ -850,6 +1128,8 @@ const RAW_STUDENTS = [[20103, "เด็กชายกมลภพ โมคา
       document.getElementById('btnPrintBooklet').addEventListener('click', handlePrintBooklet);
       document.getElementById('btnExportCsv').addEventListener('click', exportCsv);
       document.getElementById('btnExportFullReport').addEventListener('click', exportFullReportCsv);
+      document.getElementById('btnShareLine').addEventListener('click', shareSummaryToLine);
+      document.getElementById('btnCopySummary').addEventListener('click', copySummaryText);
     }
 
     function updateUI() {
@@ -892,17 +1172,17 @@ const RAW_STUDENTS = [[20103, "เด็กชายกมลภพ โมคา
         const tr = document.createElement('tr');
         tr.className = 'hover:bg-brand-50/70 transition';
         tr.innerHTML = `
-          <td class="py-2 px-3 text-center font-mono text-gray-500">${idx + 1}</td>
-          <td class="py-2 px-3 text-center font-mono font-bold text-brand-700">${id}</td>
-          <td class="py-2 px-4 font-semibold text-brand-950">${s[1]}</td>
-          <td class="py-2 px-3 text-center font-bold text-brand-700">${s[2]}</td>
-          <td class="py-2 px-4 text-center">
-            <div class="inline-flex items-center gap-1 bg-brand-50 p-1 rounded-xl border border-brand-200">
-              <button onclick="setStatus(${id}, 'มา')" class="px-2.5 py-1 rounded-lg text-xs font-bold transition ${status === 'มา' ? 'bg-emerald-600 text-white shadow-sm' : 'text-gray-600 hover:bg-white'}">มา</button>
-              <button onclick="setStatus(${id}, 'สาย')" class="px-2.5 py-1 rounded-lg text-xs font-bold transition ${status === 'สาย' ? 'bg-amber-500 text-white shadow-sm' : 'text-gray-600 hover:bg-white'}">สาย</button>
-              <button onclick="setStatus(${id}, 'ลา')" class="px-2.5 py-1 rounded-lg text-xs font-bold transition ${status === 'ลา' ? 'bg-blue-600 text-white shadow-sm' : 'text-gray-600 hover:bg-white'}">ลา</button>
-              <button onclick="setStatus(${id}, 'ขาด')" class="px-2.5 py-1 rounded-lg text-xs font-bold transition ${status === 'ขาด' ? 'bg-rose-600 text-white shadow-sm' : 'text-gray-600 hover:bg-white'}">ขาด</button>
-              <button onclick="setStatus(${id}, 'กิจกรรม')" class="px-2.5 py-1 rounded-lg text-xs font-bold transition ${status === 'กิจกรรม' ? 'bg-purple-600 text-white shadow-sm' : 'text-gray-600 hover:bg-white'}">กิจกรรม</button>
+          <td class="py-2 px-2 sm:px-3 text-center font-mono text-gray-500 text-xs sm:text-sm">${idx + 1}</td>
+          <td class="py-2 px-2 sm:px-3 text-center font-mono font-bold text-brand-700 text-xs sm:text-sm whitespace-nowrap">${id}</td>
+          <td class="py-2 px-3 sm:px-4 font-semibold text-brand-950 text-xs sm:text-sm sticky-col-name whitespace-nowrap">${s[1]}</td>
+          <td class="py-2 px-2 sm:px-3 text-center font-bold text-brand-700 text-xs sm:text-sm whitespace-nowrap">${s[2]}</td>
+          <td class="py-2 px-2 sm:px-4 text-center">
+            <div class="inline-flex items-center gap-1 sm:gap-1.5 bg-brand-50/90 p-1 sm:p-1.5 rounded-xl border border-brand-200 shadow-inner">
+              <button onclick="setStatus(${id}, 'มา')" class="px-2 sm:px-3 py-1.5 rounded-lg text-xs font-bold transition-all active:scale-95 ${status === 'มา' ? 'bg-emerald-600 text-white shadow-md font-extrabold' : 'text-gray-600 hover:bg-white'}">มา</button>
+              <button onclick="setStatus(${id}, 'สาย')" class="px-2 sm:px-3 py-1.5 rounded-lg text-xs font-bold transition-all active:scale-95 ${status === 'สาย' ? 'bg-amber-500 text-white shadow-md font-extrabold' : 'text-gray-600 hover:bg-white'}">สาย</button>
+              <button onclick="setStatus(${id}, 'ลา')" class="px-2 sm:px-3 py-1.5 rounded-lg text-xs font-bold transition-all active:scale-95 ${status === 'ลา' ? 'bg-blue-600 text-white shadow-md font-extrabold' : 'text-gray-600 hover:bg-white'}">ลา</button>
+              <button onclick="setStatus(${id}, 'ขาด')" class="px-2 sm:px-3 py-1.5 rounded-lg text-xs font-bold transition-all active:scale-95 ${status === 'ขาด' ? 'bg-rose-600 text-white shadow-md font-extrabold' : 'text-gray-600 hover:bg-white'}">ขาด</button>
+              <button onclick="setStatus(${id}, 'กิจกรรม')" class="px-2 sm:px-2.5 py-1.5 rounded-lg text-xs font-bold transition-all active:scale-95 ${status === 'กิจกรรม' ? 'bg-pink-600 text-white shadow-md font-extrabold' : 'text-gray-600 hover:bg-white'}">กิจกรรม</button>
             </div>
           </td>
         `;
@@ -986,7 +1266,7 @@ const RAW_STUDENTS = [[20103, "เด็กชายกมลภพ โมคา
             records: payloadRecords
           })
         });
-        alert(`✓ บันทึกทับข้อมูลห้อง ${currentRoom} สัปดาห์ที่ ${currentWeek} ลง Google Sheets เรียบร้อยแล้ว!`);
+        alert(`✓ บันทึกข้อมูลห้อง ${currentRoom} สัปดาห์ที่ ${currentWeek} ลง Google Sheets เรียบร้อยแล้ว!`);
         confetti({ particleCount: 70, spread: 60 });
       } catch (err) {
         alert('เกิดข้อผิดพลาดในการเชื่อมต่อ Google Sheets: ' + err.message);
@@ -1042,15 +1322,15 @@ const RAW_STUDENTS = [[20103, "เด็กชายกมลภพ โมคา
       document.getElementById('matrixReportTitle').innerText = `รายงานสรุปเวลาเรียนกิจกรรมคุณธรรม จริยธรรม ห้อง ${currentRoom} (20 สัปดาห์)`;
 
       let thHtml = `<tr>
-        <th class="py-2 px-2 text-center border">ลำดับ</th>
-        <th class="py-2 px-3 text-center border">เลขประจำตัว</th>
-        <th class="py-2 px-4 text-left border">ชื่อ - สกุล</th>`;
+        <th class="py-2 px-2 text-center border whitespace-nowrap">ลำดับ</th>
+        <th class="py-2 px-3 text-center border whitespace-nowrap">เลขประจำตัว</th>
+        <th class="py-2 px-4 text-left border sticky-col-name whitespace-nowrap">ชื่อ - สกุล</th>`;
       for (let w = 1; w <= 20; w++) {
         thHtml += `<th class="py-1 px-1 text-center border text-[10px]">ส.${w}</th>`;
       }
-      thHtml += `<th class="py-2 px-2 text-center border bg-purple-100">รวมมา</th>
-                 <th class="py-2 px-2 text-center border bg-purple-100">ร้อยละ</th>
-                 <th class="py-2 px-3 text-center border bg-purple-200">ผลการประเมิน</th></tr>`;
+      thHtml += `<th class="py-2 px-2 text-center border bg-pink-100">รวมมา</th>
+                 <th class="py-2 px-2 text-center border bg-pink-100">ร้อยละ</th>
+                 <th class="py-2 px-3 text-center border bg-pink-200">ผลการประเมิน</th></tr>`;
       matrixHead.innerHTML = thHtml;
 
       const students = RAW_STUDENTS.filter(s => s[2] === currentRoom);
@@ -1063,10 +1343,10 @@ const RAW_STUDENTS = [[20103, "เด็กชายกมลภพ โมคา
       students.forEach((s, idx) => {
         const id = s[0];
         let presentCount = 0;
-        let rowHtml = `<tr class="hover:bg-purple-50/50">
+        let rowHtml = `<tr class="hover:bg-pink-50/50">
           <td class="py-1.5 px-2 text-center border font-mono">${idx + 1}</td>
           <td class="py-1.5 px-3 text-center border font-mono font-bold">${id}</td>
-          <td class="py-1.5 px-4 border font-medium">${s[1]}</td>`;
+          <td class="py-1.5 px-4 border font-medium sticky-col-name whitespace-nowrap">${s[1]}</td>`;
 
         for (let w = 1; w <= 20; w++) {
           const key = `${currentRoom}_${w}`;
@@ -1078,14 +1358,14 @@ const RAW_STUDENTS = [[20103, "เด็กชายกมลภพ โมคา
           } else {
             const st = attendanceDB[key].records[id] || 'มา';
             let symbol = '✓';
-            let badgeClass = 'bg-emerald-100 text-emerald-800 border-emerald-200';
-            if (st === 'มา') { presentCount++; symbol = '✓'; badgeClass = 'bg-emerald-100 text-emerald-800 border-emerald-200'; }
-            else if (st === 'สาย') { presentCount += 0.5; symbol = 'ส'; badgeClass = 'bg-amber-100 text-amber-800 border-amber-200'; }
-            else if (st === 'ลา') { symbol = 'ล'; badgeClass = 'bg-blue-100 text-blue-800 border-blue-200'; }
-            else if (st === 'ขาด') { symbol = 'ข'; badgeClass = 'bg-rose-100 text-rose-800 border-rose-200'; }
-            else if (st === 'กิจกรรม') { presentCount++; symbol = 'ก'; badgeClass = 'bg-purple-100 text-purple-800 border-purple-200'; }
+            let color = 'text-emerald-600 font-bold';
+            if (st === 'มา') { presentCount++; symbol = '✓'; color = 'text-emerald-600 font-bold'; }
+            else if (st === 'สาย') { presentCount += 0.5; symbol = 'ส'; color = 'text-amber-500 font-bold'; }
+            else if (st === 'ลา') { symbol = 'ล'; color = 'text-blue-600 font-bold'; }
+            else if (st === 'ขาด') { symbol = 'ข'; color = 'text-rose-600 font-bold bg-rose-50 px-0.5 rounded'; }
+            else if (st === 'กิจกรรม') { presentCount++; symbol = 'ก'; color = 'text-pink-600 font-bold'; }
 
-            rowHtml += `<td class="py-1 px-0.5 text-center border"><span class="inline-block w-5 h-5 leading-5 rounded text-[10px] font-bold border ${badgeClass}">${symbol}</span></td>`;
+            rowHtml += `<td class="py-1 px-1 text-center border font-bold ${color}">${symbol}</td>`;
           }
         }
 
@@ -1139,7 +1419,7 @@ const RAW_STUDENTS = [[20103, "เด็กชายกมลภพ โมคา
       const isJunior = isJuniorRoom(currentRoom);
       saveRoomAdvisors();
 
-      const adv1 = advisor1Input.value.trim() || 'นายนพคุณ สืบเลย';
+      const adv1 = advisor1Input.value.trim() || (DEFAULT_ADVISORS[currentRoom] ? DEFAULT_ADVISORS[currentRoom][0] : '');
       const adv2 = advisor2Input.value.trim();
 
       // 1. หน้า 1: หน้าปก (กพ.001)
@@ -1226,13 +1506,13 @@ const RAW_STUDENTS = [[20103, "เด็กชายกมลภพ โมคา
           } else {
             const st = attendanceDB[key].records[s[0]] || 'มา';
             let sym = '✓';
-            let printStyle = 'color: #047857; font-weight: bold;';
-            if (st === 'มา') { pCount++; sym = '✓'; printStyle = 'color: #047857; font-weight: bold;'; }
-            else if (st === 'สาย') { pCount += 0.5; sym = 'ส'; printStyle = 'color: #d97706; font-weight: bold;'; }
-            else if (st === 'ลา') { sym = 'ล'; printStyle = 'color: #2563eb; font-weight: bold;'; }
-            else if (st === 'ขาด') { sym = 'ข'; printStyle = 'color: #dc2626; font-weight: 900; background-color: #fee2e2;'; }
-            else if (st === 'กิจกรรม') { pCount++; sym = 'ก'; printStyle = 'color: #7c3aed; font-weight: bold;'; }
-            row += `<td class="text-center border text-[8px] py-0.5 px-0" style="${printStyle}">${sym}</td>`;
+            let symStyle = 'color: #059669;'; // green for มา
+            if (st === 'มา') { pCount++; sym = '✓'; symStyle = 'color: #059669; font-weight: bold;'; }
+            else if (st === 'สาย') { pCount += 0.5; sym = 'ส'; symStyle = 'color: #d97706; font-weight: bold;'; }
+            else if (st === 'ลา') { sym = 'ล'; symStyle = 'color: #2563eb; font-weight: bold;'; }
+            else if (st === 'ขาด') { sym = 'ข'; symStyle = 'color: #dc2626; font-weight: bold; background-color: #fee2e2;'; }
+            else if (st === 'กิจกรรม') { pCount++; sym = 'ก'; symStyle = 'color: #db2777; font-weight: bold;'; }
+            row += `<td class="text-center border text-[8px] py-0.5 px-0" style="${symStyle}">${sym}</td>`;
           }
         }
 
@@ -1252,6 +1532,117 @@ const RAW_STUDENTS = [[20103, "เด็กชายกมลภพ โมคา
       document.getElementById('printMatrixAdvisorContainer').innerHTML = buildAdvisorSignatureHTML(adv1, adv2);
 
       window.print();
+    }
+
+            const GRADE_HEADS = {
+      'ม.1': 'นายสมศักดิ์ บุญชู',
+      'ม.2': 'นายเอกชัย สาคีรี',
+      'ม.3': 'นางสาวบุศราวัลย์ ชูภักดี',
+      'ม.4': 'นางวาสนา เหลาธรรม',
+      'ม.5': 'นางชารีณัฏฐ์ ไชยสุรินทร์',
+      'ม.6': 'นายสุภีรชัย ภิญโญดม'
+    };
+
+    function getGradeHead(rm) {
+      for (const k in GRADE_HEADS) {
+        if (rm.startsWith(k)) return GRADE_HEADS[k];
+      }
+      return '';
+    }
+
+    function generateSummaryMessage() {
+      const key = `${currentRoom}_${currentWeek}`;
+      const act = activityInput.value.trim() || 'กิจกรรมส่งเสริมคุณธรรม จริยธรรม';
+      const wInfo = getWeekInfo(currentRoom, currentWeek);
+      const students = RAW_STUDENTS.filter(s => s[2] === currentRoom);
+      const records = attendanceDB[key]?.records || {};
+
+      let p = 0, l = 0, v = 0, a = 0, actCount = 0;
+      let absentList = [];
+      let lateList = [];
+      let leaveList = [];
+
+      students.forEach(s => {
+        const st = records[s[0]] || 'มา';
+        if (st === 'มา') p++;
+        else if (st === 'สาย') { l++; lateList.push(s[1]); }
+        else if (st === 'ลา') { v++; leaveList.push(s[1]); }
+        else if (st === 'ขาด') { a++; absentList.push(s[1]); }
+        else if (st === 'กิจกรรม') actCount++;
+      });
+
+      const adv1 = advisor1Input.value.trim();
+      const adv2 = advisor2Input.value.trim();
+      let advisorText = adv1;
+      if (adv2) advisorText += `, ${adv2}`;
+
+      const gradeHead = getGradeHead(currentRoom);
+
+      let msg = `📊 [สรุปผลการเช็คชื่อกิจกรรมคุณธรรม จริยธรรม]\n`;
+      msg += `🏫 โรงเรียนสีชมพูศึกษา\n`;
+      msg += `📍 ระดับชั้น: ห้อง ${currentRoom}\n`;
+      msg += `🗓️ สัปดาห์ที่ ${currentWeek} (${wInfo.date})\n`;
+      msg += `📖 กิจกรรม: ${act}\n`;
+      msg += `👨‍🏫 ครูที่ปรึกษา: ${advisorText}\n`;
+      if (gradeHead) {
+        msg += `🎖️ หัวหน้าระดับ: ${gradeHead}\n`;
+      }
+      msg += `------------------------------\n`;
+      msg += `👥 นักเรียนทั้งหมด: ${students.length} คน\n`;
+      msg += `✅ มา: ${p} คน\n`;
+      if (l > 0) msg += `⏰ สาย: ${l} คน (${lateList.join(', ')})\n`;
+      else msg += `⏰ สาย: 0 คน\n`;
+      if (v > 0) msg += `📩 ลา: ${v} คน (${leaveList.join(', ')})\n`;
+      else msg += `📩 ลา: 0 คน\n`;
+      if (a > 0) msg += `❌ ขาด: ${a} คน (${absentList.join(', ')})\n`;
+      else msg += `❌ ขาด: 0 คน\n`;
+      if (actCount > 0) msg += `🎗️ กิจกรรม: ${actCount} คน\n`;
+      msg += `------------------------------`;
+      return msg;
+    }
+
+    function copySummaryText() {
+      const msg = generateSummaryMessage();
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(msg).then(() => {
+          showCopySuccess();
+        }).catch(() => fallbackCopy(msg));
+      } else {
+        fallbackCopy(msg);
+      }
+    }
+
+    function fallbackCopy(text) {
+      const textArea = document.createElement("textarea");
+      textArea.value = text;
+      textArea.style.position = "fixed";
+      textArea.style.left = "-9999px";
+      document.body.appendChild(textArea);
+      textArea.focus();
+      textArea.select();
+      try {
+        document.execCommand('copy');
+        showCopySuccess();
+      } catch (err) {
+        alert('คัดลอกไม่สำเร็จ กรุณาลองใหม่อีกครั้ง');
+      }
+      document.body.removeChild(textArea);
+    }
+
+    function showCopySuccess() {
+      const copyBtnText = document.getElementById('copyBtnText');
+      if (copyBtnText) copyBtnText.innerText = 'คัดลอกแล้ว ✓';
+      confetti({ particleCount: 40, spread: 50 });
+      alert('📋 คัดลอกข้อความสรุปผลเช็คชื่อเรียบร้อยแล้ว! สามารถนำไปวาง (Paste) ส่งต่อได้ทันทีครับ');
+      setTimeout(() => {
+        if (copyBtnText) copyBtnText.innerText = 'คัดลอกสรุป';
+      }, 3000);
+    }
+
+    function shareSummaryToLine() {
+      const msg = generateSummaryMessage();
+      const lineUrl = `https://line.me/R/msg/text/?${encodeURIComponent(msg)}`;
+      window.open(lineUrl, '_blank');
     }
 
     function exportCsv() {
@@ -1322,5 +1713,16 @@ const RAW_STUDENTS = [[20103, "เด็กชายกมลภพ โมคา
 
     init();
   </script>
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('sw.js')
+          .then(reg => console.log('ServiceWorker registration successful'))
+          .catch(err => console.log('ServiceWorker registration failed: ', err));
+      });
+    }
+  </script>
 </body>
+
 </html>
